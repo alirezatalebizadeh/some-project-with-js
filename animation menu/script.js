@@ -2,8 +2,6 @@ let menuElems = document.querySelectorAll('.menu a')
 let btnMenu = document.querySelector('#toggle-btn')
 let flagMenu = false
 
-console.log(menuElems[0])
-
 btnMenu.addEventListener('click', event => {
   if (!flagMenu) {
     btnMenu.classList.add('active')
@@ -16,10 +14,10 @@ btnMenu.addEventListener('click', event => {
   } else if (flagMenu) {
     btnMenu.classList.remove('active')
 
-    menuElems[0].style.transform = `translate(0px,0px)`
-    menuElems[1].style.transform = `translate(0px,0px)`
-    menuElems[2].style.transform = `translate(0px,0px)`
-    menuElems[3].style.transform = `translate(0px,0px)`
+    menuElems.forEach(menu => {
+      menu.style.transform = `translate(0px,0px)`
+    })
+
     flagMenu = false
   }
 })

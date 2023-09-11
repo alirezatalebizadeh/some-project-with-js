@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Gradient Generator</title>
+    <!--Font Awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css" />
+    <!--Google Fonts-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        برای ساخت گرادیانت خود دو رنگ ر انتخاب کنید سپس جهت ان را انتخاب کنید
+      </h1>
+      <br />
+      <br />
+      <br />
+      <div class="colors">
+        <input type="color" id="color-a" value="#1488cc" />
+        <input type="color" id="color-b" value="#2b32b2" />
+      </div>
+      <div class="buttons">
+        <button data-direction="to top" class="active">
+          <i class="fas fa-arrow-up" data-direction="to top"></i>
+        </button>
+        <button data-direction="to bottom">
+          <i class="fas fa-arrow-down" data-direction="to bottom"></i>
+        </button>
+        <button data-direction=" to right">
+          <i class="fas fa-arrow-right" data-direction=" to right"></i>
+        </button>
+        <button data-direction="to left">
+          <i class="fas fa-arrow-left" data-direction="to left"></i>
+        </button>
+        <button data-direction="to left top" class="rotate-icon">
+          <i class="fas fa-arrow-up" data-direction="to left top"></i>
+        </button>
+        <button data-direction="to left bottom" class="rotate-icon">
+          <i class="fas fa-arrow-down" data-direction="to left bottom"></i>
+        </button>
+        <button data-direction="to right bottom" class="rotate-icon">
+          <i class="fas fa-arrow-right" data-direction="to right bottom"></i>
+        </button>
+        <button data-direction="to left top" class="rotate-icon">
+          <i class="fas fa-arrow-left" data-direction="to left top"></i>
+        </button>
+      </div>
+      <button id="submit">ساختن</button>
+      <div class="output">
+        <textarea id="code" rows="2"></textarea>
+        <button id="copy">کپی متن</button>
+        <h5 class="message">متن کپی شد</h5>
+      </div>
+    </div>
+    <!--Script-->
+    <script src="script.js"></script>
+  </body>
+</html>

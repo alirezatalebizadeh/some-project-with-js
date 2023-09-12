@@ -64,5 +64,9 @@ tagInputElem.addEventListener('keyup', (event) => {
 
 
 
+removeAllBtn.addEventListener('click', () => {
+    removeAllLis()
+})
+
 
 

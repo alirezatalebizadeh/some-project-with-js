@@ -68,5 +68,5 @@ removeAllBtn.addEventListener('click', () => {
     removeAllLis()
 })
 
-
+console.log('click');
 

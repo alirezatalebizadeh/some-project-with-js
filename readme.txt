@@ -4,6 +4,6 @@
 سازنده ی بک کراند===>bg-linear-generator.netlify.app
 
 
-
+دیکشنری =>  https://my-dictionary-english.netlify.app/
 
 

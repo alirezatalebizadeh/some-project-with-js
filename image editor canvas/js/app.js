@@ -1,10 +1,11 @@
+let resetBtn = document.querySelector('.reset-btn')
+const downloadButton = document.querySelector(".save-btn");
 let brightnessInput = document.querySelector('#brightness')
 let saturationInput = document.querySelector('#saturatiob')
 let blurInput = document.querySelector('#blur')
 let inversionInput = document.querySelector('#inversion')
 let imageFileInput = document.querySelector('#imageFileInput')
 let canvas = document.querySelector('#canvas')
-let resetBtn = document.querySelector('.reset-btn')
 
 
 let ctx = canvas.getContext('2d')
@@ -144,3 +145,16 @@ resetBtn.addEventListener('click', () => {
     resetSetting()
     renderImage()
 })
+
+//!download image
+function downloadCanvasImage() {
+    const image = canvas.toDataURL("image/jpeg"); // تبدیل canvas به تصویر با فرمت JPEG (می‌توانید فرمت دیگری نیز استفاده کنید)
+
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "image.jpg";
+    link.target = "_blank";
+    link.click();
+}
+
+downloadButton.addEventListener("click", downloadCanvasImage);

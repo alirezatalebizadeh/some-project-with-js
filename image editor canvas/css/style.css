@@ -40,7 +40,8 @@ body {
   max-height: 100%;
 }
 
-.reset-btn {
+.reset-btn,
+.save-btn {
   border: none;
   outline: none;
   padding: 10px 15px;
@@ -49,6 +50,17 @@ body {
   font-size: 1.05rem;
   cursor: pointer;
 }
+
 .reset-btn:hover{
   background-color: #dcd7d7;
+}
+
+.save-btn {
+  width: 100%;
+  background-color: rgba(0, 128, 0, 0.829);
+  color: #fff;
+}
+
+.save-btn:hover {
+  background-color: green;
 }

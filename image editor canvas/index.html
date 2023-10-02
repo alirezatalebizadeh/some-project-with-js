@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>image editor</title>
+  </head>
+
+  <body>
+    <div class="editor">
+      <div class="ttolbar">
+        <div class="toolbar-item">
+          <input type="file" id="imageFileInput" />
+        </div>
+        <div class="toolbar-item">
+          <label for="brightness" class="tool-label">Brightness</label>
+          <input
+            type="range"
+            id="brightness"
+            min="0"
+            max="200"
+            class="tool-input"
+          />
+        </div>
+        <div class="toolbar-item">
+          <label for="saturatiob" class="tool-label">Saturatiob</label>
+          <input
+            type="range"
+            id="saturatiob"
+            min="0"
+            max="200"
+            class="tool-input"
+          />
+        </div>
+        <div class="toolbar-item">
+          <label for="blur" class="tool-label">Blur</label>
+          <input type="range" id="blur" min="0" max="25" class="tool-input" />
+        </div>
+        <div class="toolbar-item">
+          <label for="inversion" class="tool-label">Inversion</label>
+          <input
+            type="range"
+            id="inversion"
+            min="0"
+            max="100"
+            class="tool-input"
+          />
+        </div>
+      </div>
+      <div class="image-area">
+        <canvas id="canvas" width="500" height="500"></canvas>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

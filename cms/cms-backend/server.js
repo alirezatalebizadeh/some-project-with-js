@@ -7,16 +7,16 @@ const adminRouter = require('./routes/admin')
 const sessionRouter = require('./routes/session')
 const courseRouter = require('./routes/course')
 
-mongoose.connect('mongodb://localhost:27017/sabzlearn-cms')
+mongoose.connect('mongodb://127.0.0.1:27017/sabzlearn-cms')
 mongoose.Promise = global.Promise
 
 const app = express()
 
-app.use(bodyParser.urlencoded({ extended : false }));
-app.use(bodyParser.json({ type : 'application/json' }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ type: 'application/json' }));
 
 app.use((req, res, next) => {
-    
+
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Headers', '*')
     res.setHeader('Access-Control-Allow-Methods', '*')

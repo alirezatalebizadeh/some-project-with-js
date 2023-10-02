@@ -4,13 +4,14 @@ let blurInput = document.querySelector('#blur')
 let inversionInput = document.querySelector('#inversion')
 let imageFileInput = document.querySelector('#imageFileInput')
 let canvas = document.querySelector('#canvas')
+let resetBtn = document.querySelector('.reset-btn')
 
 
 let ctx = canvas.getContext('2d')
 
 let setting = {}
 let image = null
-
+let typeImage = '';
 
 
 //! reset setting of image
@@ -49,13 +50,47 @@ function genereteFilter() {
 function renderImage() {
     canvas.width = image.width
     canvas.height = image.height
-    console.log(
-        genereteFilter()
-    );
+
     ctx.filter = genereteFilter()
     ctx.drawImage(image, 0, 0)
 
 }
+
+
+// !تشخیص فرمت فایل
+function getMimeType(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = function () {
+            const arr = (new Uint8Array(reader.result)).subarray(0, 4);
+            let header = "";
+            for (let i = 0; i < arr.length; i++) {
+                header += arr[i].toString(16);
+            }
+            let mimeType;
+            switch (header) {
+                case "89504e47":
+                    mimeType = "image/png";
+                    break;
+                case "47494638":
+                    mimeType = "image/gif";
+                    break;
+                case "ffd8ffe0":
+                case "ffd8ffe1":
+                case "ffd8ffe2":
+                    mimeType = "image/jpeg";
+                    break;
+                default:
+                    mimeType = "unknown";
+                    break;
+            }
+            resolve(mimeType);
+        };
+        reader.onerror = reject;
+        reader.readAsArrayBuffer(file);
+    });
+}
+
 
 
 brightnessInput.addEventListener('input', () => {
@@ -72,17 +107,40 @@ inversionInput.addEventListener('input', () => {
 })
 
 
-imageFileInput.addEventListener('change', () => {
-    image = new Image()
+//! select file 
+imageFileInput.addEventListener('change', async (e) => {
+    const file = e.target.files[0]
+    try {
+        const mimeType = await getMimeType(file);
+        // console.log("نوع فایل: " + mimeType);
 
-    image.addEventListener('load', () => {
-        resetSetting()
-        renderImage()
-    })
+        if (mimeType === 'unknown') {
+            alert(' فرمت jpg , png , gif انتخاب نمایید')
+            return
+        }
+        image = new Image()
 
-    image.src = URL.createObjectURL(imageFileInput.files[0])
-    // console.log(URL.createObjectURL(imageFileInput.files[0]));
+        image.addEventListener('load', () => {
+            resetSetting()
+            renderImage()
+        })
+
+        image.src = URL.createObjectURL(imageFileInput.files[0])
+
+
+    } catch (error) {
+        console.log('اتفاقی افتاده است', err);
+    }
+
+
+
+
+
 })
 
 
 window.addEventListener('load', resetSetting)
+resetBtn.addEventListener('click', () => {
+    resetSetting()
+    renderImage()
+})

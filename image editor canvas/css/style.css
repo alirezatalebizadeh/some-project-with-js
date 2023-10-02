@@ -39,3 +39,16 @@ body {
   max-width: 100%;
   max-height: 100%;
 }
+
+.reset-btn {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: #000000;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+.reset-btn:hover{
+  background-color: #dcd7d7;
+}
